@@ -1,0 +1,3 @@
+[submodule "ner_backend"]
+	path = ner_backend
+	url = https://github.com/vitrioil/ner_backend.git
