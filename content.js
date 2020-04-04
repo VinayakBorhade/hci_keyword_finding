@@ -14,3 +14,27 @@ str = str.replace(/\s\s+/g, ' ');
 console.log('body str ', str);
 // $('#new').text(str);
 // console.log(firstHref);
+
+console.log('inside content.js');
+chrome . runtime . onMessage . addListener ( 
+    function ( request ,  sender ,  sendResponse )  { 
+        // console.log('content.js called, request', request);
+        
+      if (  request.message  ==  "clicked_browser_action"  )  { 
+        //   console.log('inside if');
+        var  firstHref  =  $ ( " a[href^='http'] " ). eq ( 0 ). attr ( " href " ); 
+        console . log ( firstHref );
+        alert('extension icon clicked!!!');
+      } 
+    } 
+  ); 
+  
+// chrome . runtime . onMessage . addListener ( 
+//     function ( request ,  sender ,  sendResponse )   { 
+//      console . log ( sender . tab  ? 
+//                   "from a content script:"   +  sender . tab . url  : 
+//                   "from the extension" ); 
+//       if   ( request . greeting  ==   "hello" ) 
+//        sendResponse ({ farewell :   "goodbye" }); 
+//     });  
+ 
