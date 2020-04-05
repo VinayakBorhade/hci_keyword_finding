@@ -6,19 +6,26 @@
     <title>Key-word finding</title>
     <style>
         body {
-    min-width:300px;
-}
-  
-
+            min-width:300px;
+        }
     </style>
+    
 </head>
 <body>
-    <div>
-        <p>
-            <h2>click on a word in the page to get its meaning</h2>
-        </p>
-    </div>
     
+    <div>
+            <h3>select a word and after right click select search option to know its meaning </h3   >
+            <h3>OR enter it below</h3>
+    </div>
+    <div>
+        <form name="myForm" id="myform" >
+            <input id="textInput" type="text" placeholder="Search.." name="search" >
+            <button id="bId" style="width:100px;height:25px;" type="submit">Search</button>
+            <script src="popup.js"></script>
+        </form>
+    </div>
+    <div id="meaning">
+    </div>
     
 </body>
 </html>
