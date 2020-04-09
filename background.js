@@ -15,8 +15,17 @@ function  getword ( info , tab )   {
 //   chrome . tabs . create ({   
 //     url :   "http://www.google.com/search?q="   +  info . selectionText
 //    }); 
-alert(info.selectionText);
- } 
+var xmlhttp = new XMLHttpRequest();
+  var x=info.selectionText;
+  xmlhttp.open("POST", "http://localhost:5000/get_ner");
+  xmlhttp.setRequestHeader("Content-Type", "application/json");
+  xmlhttp.send(JSON.stringify({body:x})); // json body
+  xmlhttp.onload = function() {
+    alert(`description: ${xmlhttp.response} `); // responseText is the server
+  };
+  alert(info.selectionText);
+}
+
 chrome . contextMenus . create ({ 
   title :   "Search: %s" ,  
   contexts : ["page"  , "selection"  , "image"  , "link"],  
